@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#121212">
+<title>Candidatos para nohousenumber=yes</title>
+<style>html,body,#map{background:#121212}</style>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@^6.11.2/dist/maplibre-gl.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+<div id="map"></div>
+<aside class="sidebar">
+<div class="app-title">
+<span>Candidatos para</span>
+<a href="https://wiki.openstreetmap.org/wiki/Key:nohousenumber" target="_blank" rel="noopener noreferrer">nohousenumber=yes</a>
+</div>
+<div class="controls">
+<button id="update">Actualizar Datos</button>
+<button id="overpass" disabled>Abrir en Overpass Turbo</button>
+<div class="regex-container">
+<label for="regex">addr:housenumber RegEx</label>
+<input id="regex" type="text" value="^[^A-Za-z]*[sSzZ].*[nNpPgG][.oOº]?$">
+</div>
+<label class="zoom-lock"><input id="lockZoom" type="checkbox">Bloquear zoom automático</label>
+</div>
+<div class="list-wrapper">
+<div class="list-head">Resumen por valor</div>
+<div id="counts"></div>
+</div>
+</aside>
+</div>
+<div id="overlay" class="ov" hidden data-terms="´S/N,S-N,S-P,S. N.,S…N,S.N,S.N.,S/N,S/Nº,S/P,S/n,SN,S\N,Sin nº,Z/G,Zg,s / n,s n,s(n,s(p,s-`p,s-n,s-p,s.n.,s//n,s/N,s/n,s/n.,s/nº,s/p,s1n,s7n,sin N,sn,z.g.,z/g,z/g.)">
+<div class="overlay-panel">
+<div class="overlay-header">
+<span class="overlay-title">Procesando consulta Postpass</span>
+<span id="overlay-eta" class="overlay-eta">ETA ~0s</span>
+<button id="ovClose" class="ov-x" type="button" title="Cerrar">✕</button>
+</div>
+<div id="overlay-log" class="overlay-log"></div>
+<div id="overlay-text" class="overlay-rot">Cargando...</div>
+</div>
+</div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
