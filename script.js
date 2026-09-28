@@ -119,7 +119,6 @@ countsEl.appendChild(e);
 };
 const load=data=>{
 const geo=normalize(data);
-if(!geo.features.length)throw new Error("Sin coordenadas válidas en la respuesta de Postpass.");
 features=geo.features;
 ct=null;
 map.getSource(SRC).setData(geo);
