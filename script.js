@@ -40,11 +40,12 @@ AND ST_Intersects(
         ELSE ST_PointOnSurface(e.geom)
     END
 )`;
-const overpassQuery=v=>`[out:json][maxsize:32Mi][timeout:60];
+const overpassQuery=v=>`[out:xml][maxsize:32Mi][timeout:60];
 rel(1311341);
 map_to_area;
 nwr["addr:housenumber"=${JSON.stringify(String(v))}](area);
-out qt tags center;`;
+(._;>;);
+out meta;`;
 const map=new maplibregl.Map({container:"map",style:"https://tiles.openfreemap.org/styles/dark",center:[-3.7,40.4],zoom:5,minZoom:2,maxZoom:19});
 map.addControl(new maplibregl.NavigationControl(),"top-left");
 const popup=new maplibregl.Popup({className:"addr-popup",maxWidth:"420px"}),tip=new maplibregl.Popup({className:"addr-tip",closeButton:false,closeOnClick:false,offset:10});
