@@ -1,4 +1,4 @@
-import * as maplibregl from "https://unpkg.com/maplibre-gl@^6.11.2/dist/maplibre-gl.mjs";
+import * as maplibregl from "https://unpkg.com/maplibre-gl@6.11.2/dist/maplibre-gl.mjs";
 const d=document,$=s=>d.querySelector(s);
 const updateBtn=$("#update"),overBtn=$("#overpass"),regexIn=$("#regex"),countsEl=$("#counts"),listHead=$(".list-head"),overlay=$("#overlay"),overlayT=$("#overlay-text"),overlayEta=$("#overlay-eta"),overlayLog=$("#overlay-log"),lockZ=$("#lockZoom"),ovX=$("#ovClose");
 const API="https://postpass.geofabrik.de/api/interpreter",SRC="candidates",LYR="candidates-points",BLUE="#00a8df",ORANGE="#f5a623",OSM="https://www.openstreetmap.org",WAIT=60,ETA=60,EMPTY={type:"FeatureCollection",features:[]};
@@ -71,7 +71,7 @@ clr(ai);
 ai=setInterval(()=>txt(overlayT,terms[i++%terms.length]||"…"),500);
 };
 ovX.onclick=()=>toggleOverlay(false);
-const btn=(title,url,icon)=>`<button type="button" class="pop-btn" title="${title}" aria-label="${title}" onclick="window.open('${url}','_blank')">${icon}</button>`;
+const btn=(title,url,icon)=>`<button type="button" class="pop-btn" title="${title}" aria-label="${title}" onclick="window.open('${url}','_blank','noopener')">${icon}</button>`;
 const popupHTML=p=>{
 let tags={};
 try{tags=JSON.parse(p.tags_json||"{}");}catch{}
@@ -201,7 +201,7 @@ update();
 });
 updateBtn.onclick=update;
 overBtn.onclick=()=>{
-if(ct)window.open(`https://overpass-turbo.eu/?Q=${encodeURIComponent(overpassQuery(ct))}`,"_blank");
+if(ct)window.open(`https://overpass-turbo.eu/?Q=${encodeURIComponent(overpassQuery(ct))}`,"_blank","noopener");
 };
 regexIn.oninput=stopCooldown;
 sync();
