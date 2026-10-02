@@ -1,7 +1,7 @@
 import * as maplibregl from "https://unpkg.com/maplibre-gl@^6.11.2/dist/maplibre-gl.mjs";
 const d=document,$=s=>d.querySelector(s);
 const updateBtn=$("#update"),overBtn=$("#overpass"),regexIn=$("#regex"),countsEl=$("#counts"),listHead=$(".list-head"),overlay=$("#overlay"),overlayT=$("#overlay-text"),overlayEta=$("#overlay-eta"),overlayLog=$("#overlay-log"),lockZ=$("#lockZoom"),ovX=$("#ovClose");
-const BASE="https://postpass.geofabrik.de/api/0.2/",API=BASE+"interpreter",SRC="candidates",LYR="candidates-points",BLUE="#00a8df",ORANGE="#f5a623",OSM="https://www.openstreetmap.org",WAIT=60,ETA=60,EMPTY={type:"FeatureCollection",features:[]};
+const API="https://postpass.geofabrik.de/api/interpreter",SRC="candidates",LYR="candidates-points",BLUE="#00a8df",ORANGE="#f5a623",OSM="https://www.openstreetmap.org",WAIT=60,ETA=60,EMPTY={type:"FeatureCollection",features:[]};
 let ct=null,ci,ai,ei,gb,ac,features=[];
 const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 const txt=(e,v)=>e&&(e.textContent=v),clr=t=>clearInterval(t),osmType=t=>({N:"node",W:"way",R:"relation"})[t];
